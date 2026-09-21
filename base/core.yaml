@@ -793,8 +793,8 @@ micro_wake_word:
     #   id: mww_hey_jarvis
     #   probability_cutoff: ${hey_jarvis_probability_cutoff}
     #   sliding_window_size: ${hey_jarvis_sliding_window}
-    # - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa_mww.json
-    #   id: mww_computa
+    - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa_mww.json
+      id: mww_computa
   on_wake_word_detected:
     # Full duplex, so the wake word no longer has to let go of the bus before
     # the beep plays - this just plays it and waits it out for pacing (the
