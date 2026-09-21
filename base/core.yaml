@@ -785,10 +785,10 @@ micro_wake_word:
       id: mww_computa
       probability_cutoff: 0.50
       sliding_window_size: 1
-    - model: alexa
-      id: mww_alexa
-      probability_cutoff: ${alexa_probability_cutoff}
-      sliding_window_size: ${alexa_sliding_window}
+    # - model: alexa
+    #   id: mww_alexa
+    #   probability_cutoff: ${alexa_probability_cutoff}
+    #   sliding_window_size: ${alexa_sliding_window}
     # - model: okay_nabu
     #   id: mww_okay_nabu
     #   probability_cutoff: ${okay_nabu_probability_cutoff}
@@ -2074,6 +2074,7 @@ script:
               - lambda: return id(wake_word_engine_location).current_option() == "On device";
           then:
             - lambda: id(va).set_use_wake_word(false);
+            - micro_wake_word.enable_model: mww_computa
             - micro_wake_word.start:
       - if:
           condition:
