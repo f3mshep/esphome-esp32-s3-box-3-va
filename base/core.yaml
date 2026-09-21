@@ -781,6 +781,10 @@ micro_wake_word:
   # reporting the actual probabilities, which turns "it doesn't work" into a
   # number. Defaults are the model manifests' own values.
   models:
+    - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa_mww.json
+      id: mww_computa
+      probability_cutoff: 0.50
+      sliding_window_size: 1
     - model: alexa
       id: mww_alexa
       probability_cutoff: ${alexa_probability_cutoff}
@@ -793,10 +797,6 @@ micro_wake_word:
     #   id: mww_hey_jarvis
     #   probability_cutoff: ${hey_jarvis_probability_cutoff}
     #   sliding_window_size: ${hey_jarvis_sliding_window}
-    - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa_mww.json
-      id: mww_computa
-      probability_cutoff: 0.50
-      sliding_window_size: 1
   on_wake_word_detected:
     # Full duplex, so the wake word no longer has to let go of the bus before
     # the beep plays - this just plays it and waits it out for pacing (the
