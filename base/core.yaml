@@ -783,8 +783,8 @@ micro_wake_word:
   models:
     - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa_mww.json
       id: mww_computa
-      probability_cutoff: 0.50
-      sliding_window_size: 1
+      probability_cutoff: 0.95
+      sliding_window_size: 5
     # - model: alexa
     #   id: mww_alexa
     #   probability_cutoff: ${alexa_probability_cutoff}
