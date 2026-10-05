@@ -781,9 +781,9 @@ micro_wake_word:
   # reporting the actual probabilities, which turns "it doesn't work" into a
   # number. Defaults are the model manifests' own values.
   models:
-    - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa_mww.json
-      id: mww_computa
-      probability_cutoff: 0.98
+    - model: https://raw.githubusercontent.com/f3mshep/esphome-esp32-s3-box-3-va/refs/heads/main/models/computa.json
+      id: computa
+      probability_cutoff: 0.60
       sliding_window_size: 6
     # - model: alexa
     #   id: mww_alexa
@@ -2074,7 +2074,7 @@ script:
               - lambda: return id(wake_word_engine_location).current_option() == "On device";
           then:
             - lambda: id(va).set_use_wake_word(false);
-            - micro_wake_word.enable_model: mww_computa
+            - micro_wake_word.enable_model: computa
             - micro_wake_word.start:
       - if:
           condition:
